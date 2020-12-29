@@ -23,8 +23,9 @@ public class Orange extends Actor
         
         if(isAtEdge()){
             getWorld().removeObject(this);
-            
+            removed = true;
         }
+        if(removed){return;}
         
         int y = getY();
         if(randomN == 0){

@@ -1,0 +1,1 @@
+http://www.kidscode.cn/archives/7970
