@@ -25,7 +25,6 @@ public class Explosion extends Actor
         if(isTouching(Lizard.class)){
             removeTouching(Lizard.class);
             MyWorld myWorld = (MyWorld)getWorld();
-            myWorld.gameOver = true;
             myWorld.endGame();
         }
         second--;

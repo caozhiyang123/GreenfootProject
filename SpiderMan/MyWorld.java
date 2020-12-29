@@ -51,9 +51,14 @@ public class MyWorld extends World
         if(Greenfoot.getRandomNumber(700)<5){
             addObject(new Spider(), Greenfoot.getRandomNumber(560), Greenfoot.getRandomNumber(360));
         }
+        if(Greenfoot.getRandomNumber(500)<3){
+            Plane plane = new Plane();
+            addObject(plane, Greenfoot.getRandomNumber(560),Greenfoot.getRandomNumber(360));
+        }
     }
     
     public void endGame(){
+        this.gameOver = true;
         showText("Game Over!!!",290,150);
         showText("Your Final Score is: "+this.score,270,170);
     }

@@ -26,7 +26,6 @@ public class Spider extends Actor
             removeTouching(Lizard.class);
             Greenfoot.playSound("Eating.wav");
             MyWorld myWorld = (MyWorld)getWorld();
-            myWorld.gameOver = true;
             myWorld.endGame();
         }
     }    
