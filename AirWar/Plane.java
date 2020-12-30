@@ -20,19 +20,25 @@ public class Plane extends Actor
         if (Greenfoot.isKeyDown("up") ){
             move(2);
         }
-        if (Greenfoot.isKeyDown("down") ){
+        else if (Greenfoot.isKeyDown("down") ){
             move(-2);
         }
-        if (Greenfoot.isKeyDown("right") ){
+        else if (Greenfoot.isKeyDown("right") ){
             turn(90);
             move(2);
             turn(-90);
         }
-        if (Greenfoot.isKeyDown("left") ){
+        else if (Greenfoot.isKeyDown("left") ){
             turn(-90);
             move(2);
             turn(90);    
         }
+        
+        if(Greenfoot.isKeyDown("space")){
+           Rocket rocket =  new Rocket();
+           getWorld().addObject(rocket,getX(),getY());
+        }
+        
     }    
     
     private void init(){
