@@ -16,6 +16,10 @@ public class Rocket extends Actor
     {
         // Add your action code here.
         init();
+        
+        if(isAtEdge()){
+            getWorld().removeObject(this);
+        }
     }
     
     private void init(){
