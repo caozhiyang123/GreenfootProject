@@ -19,24 +19,25 @@ public class Orange extends Actor
         // Add your action code here.
         move(5);
         turn(1);
-        getImage().scale(30,30);
+        getImage().scale(20,20);
         
         if(isAtEdge()){
             getWorld().removeObject(this);
             removed = true;
         }
-        if(removed){return;}
         
-        int y = getY();
-        if(randomN == 0){
-            while(randomN==0 || randomN < y){
-                randomN = Greenfoot.getRandomNumber(360);
+        if(!removed){
+            int y = getY();
+            if(randomN == 0){
+                while(randomN==0 || randomN < y){
+                    randomN = Greenfoot.getRandomNumber(360);
+                }
             }
-        }
-                
-        if (getY()>=randomN){
+            
+            if (getY()>=randomN){
             getWorld().addObject(new Explosion(),getX(),getY());
             getWorld().removeObject(this);
+            }
         }
     }    
 }
