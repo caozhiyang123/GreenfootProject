@@ -18,6 +18,7 @@ public class Rocket extends Actor
         // Add your action code here.
         turn(1);
         move(1);
+        getImage().scale(30,10);
         
         if(!removed && isTouching(Spider.class)){
             getWorld().addObject(new Explosion(),getX(),getY());

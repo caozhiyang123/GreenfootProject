@@ -31,7 +31,7 @@ public class Plane extends Actor
         
         if(removed){return;}
         
-        if (Greenfoot.getRandomNumber(500) <30)
+        if (Greenfoot.getRandomNumber(500) <3)
         {
             //Orange orange = new Orange();
             getWorld().addObject(new Orange(),getX(),getY());
