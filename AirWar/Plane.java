@@ -12,6 +12,8 @@ public class Plane extends Actor
      * Act - do whatever the Plane wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    private int count = 0;
     public void act() 
     {
         // Add your action code here.
@@ -34,7 +36,8 @@ public class Plane extends Actor
             turn(90);    
         }
         
-        if(Greenfoot.isKeyDown("space")){
+        count++;
+        if(Greenfoot.isKeyDown("space") && (count%10==0 || count==1)){
            Rocket rocket =  new Rocket();
            getWorld().addObject(rocket,getX(),getY());
         }
