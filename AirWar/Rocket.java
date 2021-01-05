@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Rocket extends Actor
 {
+    private boolean removed = false;
     /**
      * Act - do whatever the Rocket wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -17,8 +18,15 @@ public class Rocket extends Actor
         // Add your action code here.
         init();
         
-        if(isAtEdge()){
+        if(!removed && isTouching(Enemy.class)){
+            getWorld().addObject(new Explosion(),getX(),getY());
+            //Greenfoot.playSound("ExplosionSound.wav");
             getWorld().removeObject(this);
+            removed = true;
+        }
+        if(!removed && isAtEdge()){
+            getWorld().removeObject(this);
+            removed = true;
         }
     }
     

@@ -24,4 +24,13 @@ public class MyWorld extends World
         Plane plane = new Plane();
         addObject(plane,250,300);
     }
+    
+    @Override
+    public void act()
+    {
+        if (Greenfoot.getRandomNumber(500) <30)
+        {
+            addObject(new Enemy(), Greenfoot.getRandomNumber(560), Greenfoot.getRandomNumber(100));
+        }
+    }
 }
