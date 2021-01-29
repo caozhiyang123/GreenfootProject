@@ -12,7 +12,7 @@ public class Plane extends Actor
      * Act - do whatever the Plane wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+    private boolean init =false;
     private int count = 0;
     public void act() 
     {
@@ -45,7 +45,9 @@ public class Plane extends Actor
     }    
     
     private void init(){
-        getImage().scale(100,100);
-        this.setRotation(-90);
+        if(!init){
+            getImage().scale(100,100);
+            this.setRotation(-90);
+        }
     }
 }

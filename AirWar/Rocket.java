@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Rocket extends Actor
 {
+    private boolean init =false;
     private boolean removed = false;
     /**
      * Act - do whatever the Rocket wants to do. This method is called whenever
@@ -19,6 +20,10 @@ public class Rocket extends Actor
         init();
         
         if(!removed && isTouching(Enemy.class)){
+            //increase score
+            MyWorld myWorld = (MyWorld)getWorld();
+            myWorld.increaseScore(1);
+            
             getWorld().addObject(new Explosion(),getX(),getY());
             //Greenfoot.playSound("ExplosionSound.wav");
             getWorld().removeObject(this);
@@ -31,9 +36,10 @@ public class Rocket extends Actor
     }
     
     private void init(){
-        getImage().scale(40,30);
-        setRotation(-90);
-        move(3);
-    
+        if(!init){
+            getImage().scale(40,30);
+            setRotation(-90);
+            move(3);
+        }
     }
 }

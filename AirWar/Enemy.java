@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends Actor
 {
+    private boolean init =false;
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -24,7 +25,7 @@ public class Enemy extends Actor
         
         if (Greenfoot.getRandomNumber(500) <40)
         {
-            down();
+            //down();
         }
         
         if (Greenfoot.getRandomNumber(500) <30)
@@ -36,15 +37,23 @@ public class Enemy extends Actor
         {
             turnRight();
         }
+        
+        if(isTouching(Plane.class)){
+            removeTouching(Plane.class);
+            MyWorld myWorld = (MyWorld)getWorld();
+            myWorld.endGame();
+        }
     }    
     
     private void init(){
-        getImage().scale(80,80);
-        this.setRotation(-180);
+        if(!init){
+            getImage().scale(80,80);
+            this.setRotation(90);
+        }
     }
     
     private void up(){
-        move(2);
+        move(3);
     }
     
     private void down(){
@@ -53,13 +62,13 @@ public class Enemy extends Actor
     
     private void turnLeft(){
         turn(90);
-        move(2);
+        move(1);
         turn(-90);
     }
     
     private void turnRight(){
         turn(-90);
-        move(2);
+        move(1);
         turn(90);
     }
 }

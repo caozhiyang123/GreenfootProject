@@ -23,8 +23,8 @@ public class Explosion extends Actor
             removeTouching(Enemy.class);
         }
         if(isTouching(Plane.class)){
-            removeTouching(Plane.class);
-            MyWorld myWorld = (MyWorld)getWorld();
+            //removeTouching(Plane.class);
+            //MyWorld myWorld = (MyWorld)getWorld();
             //myWorld.endGame();
         }
         second--;

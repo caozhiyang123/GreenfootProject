@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    private int score;
+    public void increaseScore(int score){this.score += score;}
+    public int getScore(){return this.score;}
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -22,7 +24,12 @@ public class MyWorld extends World
     
     private void init(){
         Plane plane = new Plane();
-        addObject(plane,250,300);
+        addObject(plane,55,320);
+        showScore();
+    }
+    
+    public void showScore(){
+        showText("score: "+this.score,550,25);
     }
     
     @Override
@@ -32,5 +39,11 @@ public class MyWorld extends World
         {
             addObject(new Enemy(), Greenfoot.getRandomNumber(560), Greenfoot.getRandomNumber(100));
         }
+        showScore();
+    }
+    
+    public void endGame(){
+        showText("Game Over!!!",290,150);
+        showText("Your Final Score is: "+this.score,270,170);
     }
 }
