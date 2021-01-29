@@ -51,6 +51,10 @@ public class Enemy extends Actor
            Bullet bullet =  new Bullet();
            getWorld().addObject(bullet,getX(),getY());
         }
+        
+        if(isAtEdge()){
+            getWorld().removeObject(this);
+        }
     }    
     
     private void init(){

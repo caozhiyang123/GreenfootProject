@@ -21,10 +21,14 @@ public class Bullet extends Actor
             MyWorld myWorld = (MyWorld)getWorld();
             myWorld.endGame();
         }
+        if(isAtEdge()){
+            getWorld().removeObject(this);
+        }
     }
     
     private void init(){
         if(!init){
+            getImage().scale(10,10);
             setRotation(90);
             move(1);
         }

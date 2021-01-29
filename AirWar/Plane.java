@@ -46,7 +46,7 @@ public class Plane extends Actor
     
     private void init(){
         if(!init){
-            getImage().scale(100,100);
+            getImage().scale(50,50);
             this.setRotation(-90);
         }
     }
