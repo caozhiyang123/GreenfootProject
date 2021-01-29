@@ -18,6 +18,11 @@ public class Rocket extends Actor
     {
         // Add your action code here.
         init();
+        if(!removed && isTouching(Boss.class)){
+            
+            
+            return;
+        }
         
         if(!removed && isTouching(Enemy.class)){
             //increase score

@@ -47,7 +47,7 @@ public class Enemy extends Actor
         }
         
         count++;
-        if((count%30==0 || count==1)){
+        if((count%40==0 || count==1)){
            Bullet bullet =  new Bullet();
            getWorld().addObject(bullet,getX(),getY());
         }

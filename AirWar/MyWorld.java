@@ -8,9 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    private boolean killedBoss = false;
+    public void setKilledBoss(boolean killedBoss){this.killedBoss = killedBoss;}
+    
     private int score;
     public void increaseScore(int score){this.score += score;}
     public int getScore(){return this.score;}
+    
+    private Boss boss;
+    //public Boss getBoss(){return boss;}
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -18,7 +24,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000, 400, 1); 
+        super(800, 400, 1); 
         init();
     }
     
@@ -34,12 +40,28 @@ public class MyWorld extends World
     
     @Override
     public void act()
-    {
-        if (Greenfoot.getRandomNumber(500) <30)
+    {        
+        if(this.killedBoss){
+            this.killedBoss = false;
+            this.boss = null;
+        }
+        
+        showText("score%50="+score%50+",killedBoss:"+killedBoss+",this.boss="+this.boss,30,170); 
+        if(this.boss == null){
+            synchronized(MyWorld.class){
+               if(score>0 && score%30==0 && !killedBoss && this.boss == null){
+                    this.boss = new Boss();
+                    addObject(boss, Greenfoot.getRandomNumber(400), Greenfoot.getRandomNumber(300));
+                    return;
+               } 
+            }
+        }
+        
+        if (this.boss == null && Greenfoot.getRandomNumber(500) <30)
         {
             addObject(new Enemy(), Greenfoot.getRandomNumber(560), Greenfoot.getRandomNumber(100));
         }
-        showScore();
+        showScore();       
     }
     
     public void endGame(){

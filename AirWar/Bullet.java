@@ -16,7 +16,7 @@ public class Bullet extends Actor
     public void act() 
     {
         init();
-        if(isTouching(Plane.class)){
+        if(!isTouching(Shield.class) && isTouching(Plane.class)){
             removeTouching(Plane.class);
             MyWorld myWorld = (MyWorld)getWorld();
             myWorld.endGame();
