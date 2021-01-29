@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends Actor
 {
+    private int count = 0;
     private boolean init =false;
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
@@ -42,6 +43,13 @@ public class Enemy extends Actor
             removeTouching(Plane.class);
             MyWorld myWorld = (MyWorld)getWorld();
             myWorld.endGame();
+            return;
+        }
+        
+        count++;
+        if((count%30==0 || count==1)){
+           Bullet bullet =  new Bullet();
+           getWorld().addObject(bullet,getX(),getY());
         }
     }    
     
