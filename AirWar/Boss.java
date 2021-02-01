@@ -24,6 +24,7 @@ public class Boss extends Actor
           count++;
         }
         if(count>=1000){
+            getWorld().addObject(new Explosion(),getX(),getY());
             MyWorld myWorld = (MyWorld)getWorld();
             myWorld.setKilledBoss(true);
             myWorld.increaseScore(10);
