@@ -40,10 +40,18 @@ public class Enemy extends Actor
         }
         
         if(isTouching(Plane.class)){
-            removeTouching(Plane.class);
             MyWorld myWorld = (MyWorld)getWorld();
-            myWorld.endGame();
-            return;
+            int life = myWorld.getLife();
+            if(life==0){
+                removeTouching(Plane.class);
+                myWorld.endGame();
+                return;
+            }else if(life>0){
+                myWorld.resetLifeBar(-1);
+                getWorld().removeObject(this);
+                return;
+            }
+            
         }
         
         count++;
