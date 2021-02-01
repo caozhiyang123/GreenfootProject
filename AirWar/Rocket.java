@@ -19,8 +19,8 @@ public class Rocket extends Actor
         // Add your action code here.
         init();
         if(!removed && isTouching(Boss.class)){
-            
-            
+            //MyWorld myWorld = (MyWorld)getWorld();
+            //myWorld.getBoss().increaseCount(1);
             return;
         }
         
