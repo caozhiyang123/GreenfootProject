@@ -15,6 +15,7 @@ public class Boss extends Actor
      * Act - do whatever the Boss wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private GifImage myGif = new GifImage("5.gif");
     public void act() 
     {
         // Add your action code here.
@@ -24,6 +25,7 @@ public class Boss extends Actor
           count++;
         }
         if(count>=1000){
+            //setImage(((MyWorld)getWorld()).getMyGif().getCurrentImage());
             getWorld().addObject(new Explosion(),getX(),getY());
             MyWorld myWorld = (MyWorld)getWorld();
             myWorld.setKilledBoss(true);

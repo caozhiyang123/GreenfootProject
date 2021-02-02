@@ -29,7 +29,7 @@ public class Rocket extends Actor
             MyWorld myWorld = (MyWorld)getWorld();
             myWorld.increaseScore(1);
             
-            getWorld().addObject(new Explosion(),getX(),getY());
+            getWorld().addObject(new BossKilled(),getX(),getY());
             //Greenfoot.playSound("ExplosionSound.wav");
             getWorld().removeObject(this);
             removed = true;

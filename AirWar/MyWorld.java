@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    private GifImage myGif = new GifImage("5.gif");
+    public GifImage getMyGif(){return myGif;}
     private boolean killedBoss;
     public void setKilledBoss(boolean killedBoss){this.killedBoss = killedBoss;}
     private int score;
